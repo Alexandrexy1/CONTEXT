@@ -1,15 +1,13 @@
 import { Name } from '../Name';
+import { useContext } from 'react';
+import { UserContext } from '../../contexts/user';
 
-interface ClientProps {
-    clientName: string;
-    changeName: (name: string) => void;
-}
-
-export function Client({ clientName, changeName }: ClientProps) {
+export function Client() {
+    const { clientsLength } = useContext(UserContext);
     return(
         <div>
-            <h2>Quantidade de clientes: 23</h2>
-            <Name name={clientName} changeName={changeName}/>
+            <h2>Quantidade de clientes: {clientsLength}</h2>
+            <Name/>
         </div>
     )
 }
